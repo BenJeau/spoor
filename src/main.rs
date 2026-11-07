@@ -2,6 +2,8 @@ use std::fs::File;
 use tracing::info;
 
 mod log_list;
+mod rfc6962;
+mod tiled;
 
 #[tokio::main]
 async fn main() {
