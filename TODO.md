@@ -1,7 +1,7 @@
 1. Data extraction
 
 - [ ] Create fixtures: one get-entries batch, one checkpoint, one data tile and its level-0 hash tile
-- [ ] Query CT log lists, both RFC 6962 `logs` and static `tiled_logs` (state, temporal window, url kind)
+- [x] Query CT log lists, both RFC 6962 `logs` and static `tiled_logs` (state, temporal window, url kind)
 - [ ] Decode both leaf formats and create unified entry type
 - [ ] Parse certificate data from that entry (precert and final)
 - [ ] Fetch static issuer certificates by fingerprint
