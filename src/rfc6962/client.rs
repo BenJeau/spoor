@@ -14,9 +14,9 @@ struct RawEntries {
 }
 
 #[derive(Deserialize, Debug)]
-pub struct RawEntry {
-    leaf_input: String,
-    extra_data: String,
+pub(super) struct RawEntry {
+    pub leaf_input: String,
+    pub extra_data: String,
 }
 
 #[derive(Deserialize, Debug)]
