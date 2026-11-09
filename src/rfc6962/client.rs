@@ -1,6 +1,8 @@
 use serde::Deserialize;
 use std::time::Duration;
 
+use crate::rfc6962::log_entry::LogEntry;
+
 const REQUEST_TIMEOUT_SECS: u64 = 5;
 static APP_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
 
@@ -42,11 +44,12 @@ impl Client {
         base_url: &str,
         start: u64,
         end: u64,
-    ) -> anyhow::Result<Vec<RawEntry>> {
+    ) -> anyhow::Result<Vec<anyhow::Result<LogEntry>>> {
         let base_url = base_url.trim_end_matches('/');
         let url = format!("{base_url}/ct/v1/get-entries?start={start}&end={end}");
         let response = self.http_client.get(url).send().await?.error_for_status()?;
-        Ok(response.json::<RawEntries>().await?.entries)
+        let entries = response.json::<RawEntries>().await?.entries;
+        Ok(entries.into_iter().map(LogEntry::try_from).collect())
     }
 
     pub async fn get_signed_tree_head(&self, base_url: &str) -> anyhow::Result<SignedTreeHead> {
