@@ -350,12 +350,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "92773504d58c093f6de2459af4af33faa518c13451eb8f2b5698ed3d36e7c813"
 
 [[package]]
-name = "dyn-clone"
-version = "1.0.20"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d0881ea181b1df73ff77ffaaf9c7544ecc11e82fba9b5f27b262a3c73a332555"
-
-[[package]]
 name = "encoding_rs"
 version = "0.8.44"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -449,15 +443,6 @@ dependencies = [
  "futures-task",
  "pin-project-lite",
  "slab",
-]
-
-[[package]]
-name = "fuzzy-matcher"
-version = "0.3.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "54614a3312934d066701a80f20f15fa3b56d67ac7722b39eea5b4c9dd1d66c94"
-dependencies = [
- "thread_local",
 ]
 
 [[package]]
@@ -725,20 +710,6 @@ checksum = "cc4e190f5d26ca7051642629da2c52fc03bde85a03197c99408dcd291734c855"
 dependencies = [
  "equivalent",
  "hashbrown",
-]
-
-[[package]]
-name = "inquire"
-version = "0.9.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6654738b8024300cf062d04a1c13c10c8e2cea598ec1c47dc9b6641159429756"
-dependencies = [
- "bitflags 2.13.2",
- "crossterm",
- "dyn-clone",
- "fuzzy-matcher",
- "unicode-segmentation",
- "unicode-width",
 ]
 
 [[package]]
@@ -1589,7 +1560,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "base64",
- "inquire",
+ "crossterm",
  "jiff",
  "owo-colors",
  "reqwest",
@@ -1933,12 +1904,6 @@ name = "unicode-segmentation"
 version = "1.13.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c6f5d3c3b1bf09027a88a6bc961fc00497d651009560b5463668dc81b0fa87a8"
-
-[[package]]
-name = "unicode-width"
-version = "0.2.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ca718471876992059f251e33aafc334346ada08042b7661dd1fe313a9bced557"
 
 [[package]]
 name = "untrusted"
